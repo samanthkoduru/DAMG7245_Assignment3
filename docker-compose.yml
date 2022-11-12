@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  streamlit:
+    build: 
+        context: .
+        dockerfile: streamlit\Dockerfile
+    ports:
+      - 8505:8505
+    depends_on:
+      - fastapi
+
+  fastapi:
+    build:
+        context: .
+        dockerfile: fastapi\Dockerfile
+    ports:
+      - 8005:8005
